@@ -1,0 +1,41 @@
+body {
+  font-family: Arial;
+   background: url("../image/background.jpg") no-repeat center center /cover;
+  text-align: center;
+    color: #facc15;
+    margin: 0;
+  font-family: Arial;
+  font-size: 2em;
+  padding: 20px;
+}
+
+.container {
+  max-width: 400px;
+  margin: auto;
+}
+
+.card {
+  background: rgba(255,255,255,0.1);
+  padding: 20px;
+  margin: 20px;
+  border-radius: 10px;
+}
+
+input {
+  display: block;
+  width: 90%;
+  margin: 10px auto;
+  padding: 10px;
+  border-radius: 8px;
+}
+
+button {
+  padding: 10px;
+  background: orange;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  border-radius: 8px;
+  text-align: center;
+  text-decoration: none;
+}

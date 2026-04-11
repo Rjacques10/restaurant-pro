@@ -1,0 +1,39 @@
+body {
+  font-family: Arial;
+  background: #111;
+  color:#facc15;
+  text-align: auto;
+  background: url("../image/background.jpg") no-repeat center center /cover;
+  margin :0;
+}
+
+/*container*/
+.card {
+  background: #222;
+  padding: 15px;
+  margin: 15px;
+  border-radius: 10px;
+  background: rgb(0, 0, 0, 0.0);
+  backdrop-filter: blur(10px);
+  border-radius: 15px;
+  color: #ffd700;
+  display: flex;
+  gap: 15px;
+  margin-bottom: 10px;
+  align-items: auto;
+   display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 20px;
+    
+}
+
+button {
+  background: orange;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  text-decoration: none;
+  border-radius: 8px;
+  color: #fff;
+}
