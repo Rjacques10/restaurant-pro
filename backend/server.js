@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
@@ -8,21 +9,20 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-//servir images
-app.use('/uploads', express.static(path.join(__dirname, 'uploads')) );
+// servir les images uploadées
+app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 
-// 🔗 MongoDB
-mongoose.connect('mongodb://127.0.0.1:27017/restaurant')
-  .then(() => console.log("MongoDB connected"))
-  .catch(err => console.log(err));
+// MongoDB
+mongoose.connect(process.env.MONGO_URI || 'mongodb://127.0.0.1:27017/restaurant')
+  .then(() => console.log("MongoDB connecté"))
+  .catch(err => console.error("Erreur MongoDB:", err.message));
 
 // ROUTES
 app.use('/api/auth', require('./routes/authRoutes'));
 app.use('/api/menus', require('./routes/menuRoutes'));
 
-// // 🔥 NOUVEAU PORT
-const PORT = 5004;
+const PORT = process.env.PORT || 5004;
 
 app.listen(PORT, () => {
-  console.log("Server running on port " + PORT);
+  console.log(`Serveur lancé sur le port ${PORT}`);
 });

@@ -1,23 +1,131 @@
 <!DOCTYPE html>
-<html>
+<html lang="fr">
 <head>
-  <title>Admin</title>
-  <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Administration — La Table d'Or</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;1,9..144,500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
-<h2>Login</h2>
-<input id="user" placeholder="Username">
-<input id="pass" type="password" placeholder="Password">
-<button onclick="login()">Login</button>
+<!-- ===== Écran de connexion ===== -->
+<section id="login-screen" class="login">
+  <form id="login-form" class="login__card">
+    <p class="brand">La Table d'Or</p>
+    <h1>Espace administration</h1>
+    <p class="login__error" id="login-error" hidden>Identifiants incorrects.</p>
 
-<h2>Add Menu</h2>
-<input id="name" placeholder="Name">
-<input id="price" placeholder="Price">
-<input id="cat" placeholder="Category">
-<input id="image" type="file"> <!-- 🔥 IMPORTANT -->
-<button onclick="addMenu()">Add</button>
+    <label>
+      Identifiant
+      <input id="user" name="username" autocomplete="username" required>
+    </label>
+    <label>
+      Mot de passe
+      <input id="pass" name="password" type="password" autocomplete="current-password" required>
+    </label>
+
+    <button type="submit" class="btn btn--primary">Se connecter</button>
+  </form>
+</section>
+
+<!-- ===== Dashboard ===== -->
+<div id="dashboard" class="dashboard" hidden>
+  <aside class="sidebar">
+    <p class="brand">La Table d'Or</p>
+    <nav class="sidebar__nav">
+      <span class="sidebar__link sidebar__link--active">Tableau de bord</span>
+    </nav>
+    <div class="sidebar__user">
+      <div class="sidebar__avatar" id="user-initial">A</div>
+      <div>
+        <p class="sidebar__name" id="user-name">Admin</p>
+        <button id="logout" class="sidebar__logout">Déconnexion</button>
+      </div>
+    </div>
+  </aside>
+
+  <main class="content">
+    <header class="content__head">
+      <h1>Tableau de bord</h1>
+      <button id="open-add" class="btn btn--primary">+ Ajouter un plat</button>
+    </header>
+
+    <section class="stats" id="stats">
+      <div class="stat-card">
+        <p class="stat-card__label">Plats au menu</p>
+        <p class="stat-card__value" id="stat-total">—</p>
+      </div>
+      <div class="stat-card">
+        <p class="stat-card__label">Catégories</p>
+        <p class="stat-card__value" id="stat-categories">—</p>
+      </div>
+      <div class="stat-card">
+        <p class="stat-card__label">Likes cumulés</p>
+        <p class="stat-card__value" id="stat-likes">—</p>
+      </div>
+      <div class="stat-card">
+        <p class="stat-card__label">Prix moyen</p>
+        <p class="stat-card__value" id="stat-avg">—</p>
+      </div>
+    </section>
+
+    <section class="table-card">
+      <div class="table-card__head">
+        <h2>Plats</h2>
+      </div>
+      <table class="table">
+        <thead>
+          <tr>
+            <th></th>
+            <th>Nom</th>
+            <th>Catégorie</th>
+            <th>Prix</th>
+            <th>Likes</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody id="menu-rows">
+          <tr><td colspan="6" class="table__empty">Chargement…</td></tr>
+        </tbody>
+      </table>
+    </section>
+  </main>
+</div>
+
+<!-- ===== Modal ajout / édition ===== -->
+<div id="menu-modal" class="modal" hidden>
+  <form id="menu-form" class="modal__card" enctype="multipart/form-data">
+    <h2 id="modal-title">Ajouter un plat</h2>
+    <input type="hidden" id="menu-id">
+
+    <label>
+      Nom du plat
+      <input id="name" name="name" required>
+    </label>
+    <label>
+      Prix (Fcfa)
+      <input id="price" name="price" type="number" min="0" step="1" required>
+    </label>
+    <label>
+      Catégorie
+      <input id="cat" name="category" placeholder="Entrée, Plat, Dessert…" required>
+    </label>
+    <label>
+      Photo
+      <input id="image" name="image" type="file" accept="image/png,image/jpeg,image/webp">
+    </label>
+
+    <p class="modal__error" id="modal-error" hidden></p>
+
+    <div class="modal__actions">
+      <button type="button" id="close-modal" class="btn btn--ghost">Annuler</button>
+      <button type="submit" class="btn btn--primary">Enregistrer</button>
+    </div>
+  </form>
+</div>
 
 <script src="script.js"></script>
 </body>

@@ -1,0 +1,13 @@
+# dependencies
+node_modules/
+
+# environment
+.env
+
+# uploads (contenu utilisateur, pas du code)
+backend/uploads/*
+!backend/uploads/.gitkeep
+
+# OS / editor
+.DS_Store
+*.log

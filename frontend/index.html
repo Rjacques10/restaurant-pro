@@ -1,15 +1,49 @@
 <!DOCTYPE html>
-<html>
+<html lang="fr">
 <head>
-  <title>Menu</title>
-  <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>La Table d'Or — Restaurant Gastronomique</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;1,9..144,500;1,9..144,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
-<h1>🍔 Nos Menus</h1>
+<header class="topbar">
+  <span class="brand">La Table d'Or</span>
+  <a class="topbar__link" href="#carte">La carte</a>
+</header>
 
-<div id="menus"></div>
+<section class="hero">
+  <div class="hero__overlay"></div>
+  <div class="hero__content">
+    <p class="eyebrow">Restaurant gastronomique</p>
+    <h1 class="hero__title">La Table<br><em>d'Or</em></h1>
+    <p class="hero__tagline">Une cuisine de saison, servie avec la même exigence à chaque assiette.</p>
+    <a href="#carte" class="hero__cta">Découvrir la carte ↓</a>
+  </div>
+</section>
+
+<main id="carte" class="carte">
+  <div class="carte__head">
+    <p class="eyebrow">La carte</p>
+    <h2>Ce soir, à la carte</h2>
+  </div>
+
+  <div id="menus" class="menus">
+    <p class="menus__loading">La carte se prépare…</p>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div>
+    <span class="brand brand--small">La Table d'Or</span>
+    <p>Ouvert du mardi au samedi, 19h – 23h</p>
+  </div>
+  <p class="site-footer__note">Prix indiqués en Fcfa, service compris.</p>
+</footer>
 
 <script src="script.js"></script>
 </body>
