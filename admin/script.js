@@ -1,5 +1,5 @@
 // ⚠️ En production, remplacez par l'URL réelle de votre API.
-const API = "http://localhost:5004";
+const API = "https://restaurant-pro-api.onrender.com";
 
 const loginScreen = document.getElementById("login-screen");
 const dashboard = document.getElementById("dashboard");
