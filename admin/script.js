@@ -35,6 +35,7 @@ function showDashboard() {
 function showLogin() {
   clearSession();
   dashboard.hidden = true;
+  menuModal.hidden = true;
   loginScreen.hidden = false;
 }
 
